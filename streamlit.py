@@ -43,7 +43,7 @@ if st.button('Generate Words'):
     selected_words = select_unique_random_words(word, 12)
     k = 1
     for word in selected_words:
-        st.write(f"The words {k} are : {word}")
+        st.write(f"The {k} words is : {word}")
         k+=1 
         time.sleep(1)
         
