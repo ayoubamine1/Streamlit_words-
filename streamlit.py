@@ -32,7 +32,7 @@ def select_unique_random_words(words, num_words):
         else:
             # if already in table, reselect words
             selected_words = random.sample(words, num_words)
-     print(c.execute("SELECT COUNT(*) FROM selected_words").fetchone())
+    print(c.execute("SELECT COUNT(*) FROM selected_words").fetchone())
     conn.close()
 
 
