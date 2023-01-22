@@ -40,14 +40,12 @@ def select_unique_random_words(words, num_words):
 
 
 if st.button('Generate Words'):
-    selected_words = select_unique_random_words(word, 12)
-    k = 1
-    for word in selected_words:
-        st.write(f"The {k} words is : {word}")
-        k+=1 
+    
+    for i in range(100000):  
+        selected_words = select_unique_random_words(word, 12)
+        sentence =  ', '.join(selected_words)
+        st.write(f"The words are : {sentence}")
         time.sleep(1)
-        
-    #sentence =  ', '.join(selected_words)
 
     
 
