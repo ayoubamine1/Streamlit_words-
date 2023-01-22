@@ -5,11 +5,11 @@ import pickle
 import sqlite3
 import random
 
-'''
+
 f = open('word_list.js')
-st = f.read()
-st = st.replace('\n','').replace(';','').split('=')[1].replace('[','').replace(']','').replace('"','').replace(' ','')
-word =str(st).split(',')'''
+stg = f.read()
+stg = stg.replace('\n','').replace(';','').split('=')[1].replace('[','').replace(']','').replace('"','').replace(' ','')
+word =str(stg).split(',')
 
 
 def select_unique_random_words(words, num_words):
