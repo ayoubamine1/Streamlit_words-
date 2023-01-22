@@ -45,7 +45,6 @@ if st.button('Generate Words'):
         selected_words = select_unique_random_words(word, 12)
         sentence =  ', '.join(selected_words)
         st.write(f"The words are : {sentence}")
-        time.sleep(1)
 
     
 
