@@ -4,7 +4,7 @@ import streamlit as st
 import pickle
 import sqlite3
 import random
-
+import time 
 
 f = open('word_list.js')
 stg = f.read()
@@ -41,9 +41,13 @@ def select_unique_random_words(words, num_words):
 
 if st.button('Generate Words'):
     selected_words = select_unique_random_words(word, 12)
-    sentence =  ', '.join(selected_words)
+    for word in selected_words:
+        st.write(f"The words are : {sentence}")
+        time.sleep(1)
+        
+    #sentence =  ', '.join(selected_words)
 
-    st.write(f"The words are : {sentence}")
+    
 
 
 
