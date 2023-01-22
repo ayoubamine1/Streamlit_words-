@@ -40,10 +40,11 @@ def select_unique_random_words(words, num_words):
 #feel = st.text_input("Enter the Feeling: ",key="feeling")
 
 
-if st.button('Make Prediction'):
+if st.button('Generate Words'):
     selected_words = select_unique_random_words(word, 12)
+    sentence =  ' '.join(selected_words)
 
-    st.write(f"The word are : {selected_words}")
+    st.write(f"The words are : {sentence}")
 
 
 
