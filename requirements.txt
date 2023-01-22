@@ -1,5 +1,1 @@
-streamlit==1.3.1
-sqlite3
-random
-Footer
-© 2022 GitHub, Inc.
+
