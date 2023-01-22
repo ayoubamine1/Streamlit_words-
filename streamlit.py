@@ -16,7 +16,7 @@ def select_unique_random_words(words, num_words):
     # Connect to the SQLite database
     conn = sqlite3.connect('selected_words.db')
     c = conn.cursor()
-
+    print('after connection')
     # Create the table if it doesn't exist
     c.execute('''CREATE TABLE IF NOT EXISTS selected_words
                 (words text)''')
@@ -42,7 +42,7 @@ def select_unique_random_words(words, num_words):
 
 if st.button('Generate Words'):
     selected_words = select_unique_random_words(word, 12)
-    sentence =  ','.join(selected_words)
+    sentence =  ', '.join(selected_words)
 
     st.write(f"The words are : {sentence}")
 
