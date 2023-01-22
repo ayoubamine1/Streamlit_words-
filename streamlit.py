@@ -19,7 +19,7 @@ def select_unique_random_words(words, num_words):
     # Create the table if it doesn't exist
     c.execute('''CREATE TABLE IF NOT EXISTS selected_words
                 (words text)''')
-
+    size =  print(c.execute("SELECT COUNT(*) FROM selected_words").fetchone())
     selected_words = random.sample(words, num_words)
     while True:
         # Check if the selected words are already in the table
@@ -28,11 +28,10 @@ def select_unique_random_words(words, num_words):
             # if not in table, insert the selected words and return
             c.execute("INSERT INTO selected_words (words) VALUES (?)", (str(selected_words),))
             conn.commit()
-            return selected_words
+            return selected_words,size
         else:
             # if already in table, reselect words
-            selected_words = random.sample(words, num_words)
-    print(c.execute("SELECT COUNT(*) FROM selected_words").fetchone())
+            selected_words = random.sample(words, num_words),size
     conn.close()
 
 
@@ -43,9 +42,9 @@ def select_unique_random_words(words, num_words):
 if st.button('Generate Words'):
     
     for i in range(100000):  
-        selected_words = select_unique_random_words(word, 12)
+        selected_words,size = select_unique_random_words(word, 12)
         sentence =  ', '.join(selected_words)
-        st.write(f"The words are : {sentence}")
+        st.write(f"The words are : {sentence}{ size}")
 
     
 
