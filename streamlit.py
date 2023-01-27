@@ -28,7 +28,7 @@ if st.button('Generate Words'):
             st.write(f"The words are : {sentence}")
             i+=1
 
-        state[0] +=1
+        state[0] += 100000000
         for k in range(11):
             if state [k] >= n :
                 state[k+1] += int(state[k]/n)
