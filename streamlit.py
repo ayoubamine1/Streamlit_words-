@@ -28,14 +28,15 @@ if st.button('Generate Words'):
             st.write(f"The words are : {sentence}")
             i+=1
 
-        state[0] += 1
+        state[0] +=1
         for k in range(11):
-            if state [k] == n :
-                state[k] = 0
-                state[k+1] += 1
+            if state [k] >= n :
+            state[k+1] += int(state[k]/n)
+            
+            state[k] = state [k]-n*int(state [k]/n)
             else: 
                 break 
-        if state[-1] == n:
+        if state[-1] > n:
             state = [12-i for i in range(1,13)]
     file = open('state.txt','w')
     for i in state:
