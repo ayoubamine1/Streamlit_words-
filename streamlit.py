@@ -28,6 +28,7 @@ if st.button('Generate Words'):
             sentence = ' '.join(lst)
             st.write(f"The words are : {sentence}")
             i+=1
+            print(i)
 
         state[0] += 100000000
         for k in range(11):
