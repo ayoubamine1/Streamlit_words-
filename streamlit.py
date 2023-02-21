@@ -3,11 +3,11 @@ import pickle
 import numpy as np
 
 # extract the words from the file 
-    '''f = open('word_list.js')
-    stg = f.read()
-    stg = stg.replace('\n','').replace(';','').split('=')[1].replace('[','').replace(']','').replace('"','').replace(' ','')
-    words =str(stg).split(',')
-    f.close()'''
+'''f = open('word_list.js')
+stg = f.read()
+stg = stg.replace('\n','').replace(';','').split('=')[1].replace('[','').replace(']','').replace('"','').replace(' ','')
+words =str(stg).split(',')
+f.close()'''
 
 
 if st.button('Generate Words'):
