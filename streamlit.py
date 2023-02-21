@@ -2,6 +2,12 @@ import streamlit as st
 import pickle
 import numpy as np
 
+# extract the words from the file 
+    '''f = open('word_list.js')
+    stg = f.read()
+    stg = stg.replace('\n','').replace(';','').split('=')[1].replace('[','').replace(']','').replace('"','').replace(' ','')
+    words =str(stg).split(',')
+    f.close()'''
 
 
 if st.button('Generate Words'):
@@ -9,14 +15,9 @@ if st.button('Generate Words'):
     state = []
     for line in file:
         state.append(int(line.replace('\n','')))
+        
     file.close()
 
-    # extract the words from the file 
-    '''f = open('word_list.js')
-    stg = f.read()
-    stg = stg.replace('\n','').replace(';','').split('=')[1].replace('[','').replace(']','').replace('"','').replace(' ','')
-    words =str(stg).split(',')
-    f.close()'''
     words = np.load('words.npy')
 
     n = len(words)
@@ -26,15 +27,15 @@ if st.button('Generate Words'):
         if len(np.unique(state)) == 12 : 
             lst =  [words[j] for j in state]
             sentence = ' '.join(lst)
-            st.write(f"The words are : {sentence}")
+            st.write(sentence)
             i+=1
             print(i)
 
-        state[0] += 100000000
+        state[0] += 1+n+n**2+n**3+n**4+n**5 
         for k in range(11):
             if state [k] >= n :
                 state[k+1] += int(state[k]/n)
-                state[k] = state [k]-n*int(state [k]/n)
+                 state[k] = int( state [k]%n)
             else: 
                 break 
         if state[-1] > n:
