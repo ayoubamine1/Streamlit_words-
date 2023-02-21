@@ -35,7 +35,7 @@ if st.button('Generate Words'):
         for k in range(11):
             if state [k] >= n :
                 state[k+1] += int(state[k]/n)
-                 state[k] = int( state [k]%n)
+                state[k] = int( state [k]%n)
             else: 
                 break 
         if state[-1] > n:
